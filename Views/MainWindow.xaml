@@ -6,25 +6,47 @@
         xmlns:local="clr-namespace:Backuper_UI"
         xmlns:vm="clr-namespace:Backuper_UI.ViewModels"
         mc:Ignorable="d"
-        Title="Backuper" Height="450" Width="616">
+        Title="Backuper" Height="450" Width="600">
 
+    <!-- ViewModel -->
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
 
-    <Grid MinWidth="600" HorizontalAlignment="Left" Width="600">
-        <ListView Margin="0,45,0,10" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}" MinWidth="580">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- row1 -->
+            <RowDefinition Height="*"/>    <!-- row2 -->
+        </Grid.RowDefinitions>
+
+        <!-- Navbar -->
+        <DockPanel Grid.Row="0" Margin="0,0,0,10">
+            <Label Content="Cluster List" FontSize="14" FontWeight="Bold" Width="100"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Add Cluster" 
+                        Command="{Binding AddClusterCommand}" 
+                        Width="100" Height="30" Margin="0,0,5,0" HorizontalAlignment="Center"/>
+
+                <Button Content="Remove Cluster" 
+                        Command="{Binding RemoveClusterCommand}" 
+                        Width="100" Height="30" Margin="0,0,5,0"/>
+
+                <Button Content="Settings" 
+                        Command="{Binding OpenSettingsCommand}" 
+                        Width="100" Height="30"/>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- cluster table -->
+        <ListView Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Cluster Name" Width="140"/>
-                    <GridViewColumn Header="Source Path" Width="420"/>
+                    <GridViewColumn Header="Cluster Name" Width="150"/>
+                    <GridViewColumn Header="Source Path" Width="400"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Settings" Margin="490,10,10,0" VerticalAlignment="Top" Height="30"/>
-        <Button Content="Remove Cluster" HorizontalAlignment="Left" Margin="385,10,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
-        <Button x:Name="btnAddCluster" Content="Add Cluster" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnAddCluster_Click"/>
-        <Label Content="Cluster List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="100" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
