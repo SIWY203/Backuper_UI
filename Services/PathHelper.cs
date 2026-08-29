@@ -1,4 +1,6 @@
-﻿class PathHelper
+﻿using System.IO;
+
+class PathHelper
 {
     public static bool IsSubdirectory(string src, string dest)
     {

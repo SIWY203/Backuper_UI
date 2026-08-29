@@ -8,8 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static ClusterManager;
 
-namespace Backuper_UI
+namespace Backuper_UI.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -20,6 +21,19 @@ namespace Backuper_UI
         {
             InitializeComponent();
 
+            //Loc.LoadLangConfig();
+            //Cleaner.LoadConfig();
+            //LoadClusters();
+            //if (Clusters.Count == 0)
+            //{
+            //    ClusterUI.RunCreator();
+            //    SaveClusters();
+            //}
+
+            //while (true)
+            //{
+            //    MenuUI.Menu();
+            //}
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿class ConfigManager
+﻿using System.IO;
+class ConfigManager
 {
     private static readonly string AppFolder =
 #if DEBUG

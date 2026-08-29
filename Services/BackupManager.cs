@@ -1,4 +1,6 @@
-﻿class BackupManager
+﻿using System.IO;
+
+class BackupManager
 {
     public static bool CreateBackup(Cluster c)
     {

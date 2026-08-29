@@ -1,4 +1,5 @@
-﻿using static ConfigManager;
+﻿using System.IO;
+using static ConfigManager;
 
 public enum Lang { PL, EN }
 
