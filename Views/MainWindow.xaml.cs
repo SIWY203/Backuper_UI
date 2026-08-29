@@ -20,20 +20,12 @@ namespace Backuper_UI.Views
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
 
-            //Loc.LoadLangConfig();
-            //Cleaner.LoadConfig();
-            //LoadClusters();
-            //if (Clusters.Count == 0)
-            //{
-            //    ClusterUI.RunCreator();
-            //    SaveClusters();
-            //}
+        private void btnAddCluster_Click(object sender, RoutedEventArgs e)
+        {
 
-            //while (true)
-            //{
-            //    MenuUI.Menu();
-            //}
         }
     }
 }

@@ -4,9 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Backuper_UI"
+        xmlns:vm="clr-namespace:Backuper_UI.ViewModels"
         mc:Ignorable="d"
-        Title="Backuper" Height="450" Width="800">
-    <Grid>
+        Title="Backuper" Height="450" Width="616">
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Grid MinWidth="600" HorizontalAlignment="Left" Width="600">
+        <ListView Margin="0,45,0,10" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}" MinWidth="580">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Cluster Name" Width="140"/>
+                    <GridViewColumn Header="Source Path" Width="420"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Settings" Margin="490,10,10,0" VerticalAlignment="Top" Height="30"/>
+        <Button Content="Remove Cluster" HorizontalAlignment="Left" Margin="385,10,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
+        <Button x:Name="btnAddCluster" Content="Add Cluster" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnAddCluster_Click"/>
+        <Label Content="Cluster List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="100" FontSize="14" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
