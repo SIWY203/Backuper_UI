@@ -4,7 +4,7 @@ namespace Backuper_UI.ViewModels;
 
 public class SettingsWindowViewModel
 {
-    // Kolekcja automatycznie odświeżająca widok po dodaniu/usunięciu elementów
+    // Collection automaticaly refresh view after add/remove item
     public ObservableCollection<string> Languages { get; } = ["English", "Polish"];
 
     public string? SelectedLanguage { get; set; }
