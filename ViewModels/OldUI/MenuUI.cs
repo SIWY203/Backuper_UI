@@ -1,6 +1,8 @@
 ﻿using static ClusterManager;
 using static InputManager;
 
+namespace Backuper_UI.ViewModels;
+
 class MenuUI
 {
     public static void Menu()

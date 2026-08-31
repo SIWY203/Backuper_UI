@@ -1,6 +1,8 @@
 ﻿using static BackupManager;
 using System.Diagnostics;
 
+namespace Backuper_UI.ViewModels;
+
 class BackupUI
 {
     public static void Create(Cluster c)

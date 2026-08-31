@@ -1,6 +1,8 @@
 ﻿using static ClusterManager;
 using static InputManager;
 
+namespace Backuper_UI.ViewModels;
+
 class ClusterUI
 {
     public static void RunCreator()
