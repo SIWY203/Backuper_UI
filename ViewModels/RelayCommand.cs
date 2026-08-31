@@ -5,7 +5,7 @@ public class RelayCommand(Action execute, Func<bool>? canExecute = null) : IComm
 {
     public event EventHandler? CanExecuteChanged
     {
-        add => CommandManager.RequerySuggested += value;
+        add => CommandManager.RequerySuggested += value; // 'add', 'remove' == event query list '+=', '-=' 
         remove => CommandManager.RequerySuggested -= value;
     }
 
