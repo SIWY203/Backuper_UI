@@ -34,7 +34,7 @@
         <TextBox x:Name="tbBackupLimit" HorizontalAlignment="Left" Margin="120,45,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding BackupLimit}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbSnapshotLimit" HorizontalAlignment="Left" Margin="120,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SnapshotLimit}" VerticalAlignment="Top" Width="120"/>
 
-        <Button Content="Back" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
 
 
     </Grid>
