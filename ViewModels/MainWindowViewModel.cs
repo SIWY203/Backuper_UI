@@ -10,8 +10,8 @@ public class MainWindowViewModel
 
     public MainWindowViewModel()
     {
-        AddClusterCommand = new RelayCommand(ClusterUI.RunCreator);
-        RemoveClusterCommand = new RelayCommand(ClusterUI.RunRemover);
+        AddClusterCommand = new RelayCommand(RunCreator);
+        RemoveClusterCommand = new RelayCommand(RunRemover);
         OpenSettingsCommand = new RelayCommand(OpenSettings);
     }
 
@@ -19,5 +19,17 @@ public class MainWindowViewModel
     {
         var settingsWindow = new SettingsWindow();
         settingsWindow.ShowDialog(); // ShowDialog() blokuje, Show() nie
+    }
+
+    private void RunCreator()
+    {
+        var creatorWindow = new ClusterCreatorWindow();
+        creatorWindow.ShowDialog();
+    }
+
+    private void RunRemover()
+    {
+        var removerWindow = new ClusterRemoverWindow();
+        removerWindow.ShowDialog();
     }
 }

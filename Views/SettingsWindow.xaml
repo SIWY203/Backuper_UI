@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Backuper_UI"
         xmlns:vm="clr-namespace:Backuper_UI.ViewModels"
         mc:Ignorable="d"
-        Title="Backuper" Height="450" Width="600">
+        Title="Backuper" Height="400" Width="500">
 
     <!-- ViewModel -->
     <Window.DataContext>
