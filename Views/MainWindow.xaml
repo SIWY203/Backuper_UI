@@ -39,11 +39,11 @@
         </DockPanel>
 
         <!-- cluster table -->
-        <ListView Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView Grid.Row="1" ItemsSource="{Binding Clusters}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Cluster Name" Width="150"/>
-                    <GridViewColumn Header="Source Path" Width="400"/>
+                    <GridViewColumn Header="Cluster Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                    <GridViewColumn Header="Source Path" DisplayMemberBinding="{Binding Source}" Width="400"/>
                 </GridView>
             </ListView.View>
         </ListView>
