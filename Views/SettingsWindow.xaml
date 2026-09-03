@@ -10,7 +10,7 @@
 
     <!-- ViewModel -->
     <Window.DataContext>
-        <vm:SettingsWindowViewModel />
+        <vm:SettingsViewModel />
     </Window.DataContext>
 
     <Grid Margin="10">

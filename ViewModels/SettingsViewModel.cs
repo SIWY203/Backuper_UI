@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 namespace Backuper_UI.ViewModels;
 
-public class SettingsWindowViewModel
+public class SettingsViewModel
 {
     // Collection automaticaly refresh view after add/remove item
     public ObservableCollection<string> Languages { get; } = ["English", "Polish"];
@@ -13,7 +13,7 @@ public class SettingsWindowViewModel
     public int BackupLimit { get; set; } = Cleaner.CurrentLimit.MaxBackupCount;
     public int SnapshotLimit { get; set; } = Cleaner.CurrentLimit.MaxSnapshotCount;
 
-    public SettingsWindowViewModel()
+    public SettingsViewModel()
     {
         
     }

@@ -3,16 +3,16 @@ using System.Windows;
 using System.Windows.Input;
 namespace Backuper_UI.ViewModels;
 
-public class ClusterCreatorWindowViewModel
+public class ClusterCreatorViewModel
 {
     public string ClusterName { get; set; } = string.Empty;
     public string SourcePath { get; set; } = string.Empty;
     public string TargetPath { get; set; } = string.Empty;
-    public ICommand AddCluster { get; }
+    public ICommand AddClusterCommand { get; }
 
-    public ClusterCreatorWindowViewModel()
+    public ClusterCreatorViewModel()
     {
-        AddCluster = new RelayCommand(Add);
+        AddClusterCommand = new RelayCommand(Add);
     }
 
     public void Add()

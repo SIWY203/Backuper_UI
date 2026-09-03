@@ -10,7 +10,7 @@
 
     <!-- ViewModel -->
     <Window.DataContext>
-        <vm:ClusterCreatorWindowViewModel />
+        <vm:ClusterCreatorViewModel />
     </Window.DataContext>
 
     <Grid Margin="10">
@@ -35,7 +35,7 @@
         <TextBox x:Name="tbSourcePath" HorizontalAlignment="Left" Margin="120,45,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Text="{Binding SourcePath, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox x:Name="tbTargetPath" HorizontalAlignment="Left" Margin="120,72,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Text="{Binding TargetPath, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Content="Create" Command="{Binding AddCluster}" HorizontalAlignment="Left" Margin="120,99,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="100"/>
+        <Button Content="Create" Command="{Binding AddClusterCommand}" HorizontalAlignment="Left" Margin="120,99,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="100"/>
 
         <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
         

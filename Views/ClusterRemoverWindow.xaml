@@ -10,7 +10,7 @@
 
     <!-- ViewModel -->
     <Window.DataContext>
-        <vm:ClusterRemoverWindowViewModel />
+        <vm:ClusterRemoverViewModel />
     </Window.DataContext>
 
     <Grid Margin="10">

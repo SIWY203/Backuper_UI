@@ -3,17 +3,17 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 namespace Backuper_UI.ViewModels;
 
-public class MainWindowViewModel
+public class MainViewModel
 {
     public ICommand AddClusterCommand { get; }
     public ICommand RemoveClusterCommand { get; }
     public ICommand OpenSettingsCommand { get; }
     public ObservableCollection<Cluster> Clusters { get; }
 
-    public MainWindowViewModel()
+    public MainViewModel()
     {
-        AddClusterCommand = new RelayCommand(RunCreator);
-        RemoveClusterCommand = new RelayCommand(RunRemover);
+        AddClusterCommand = new RelayCommand(ShowCreator);
+        RemoveClusterCommand = new RelayCommand(ShowRemover);
         OpenSettingsCommand = new RelayCommand(OpenSettings);
         Clusters = new ObservableCollection<Cluster>(ClusterManager.Clusters);
 
@@ -27,7 +27,7 @@ public class MainWindowViewModel
         settingsWindow.ShowDialog(); // ShowDialog() blokuje, Show() nie
     }
 
-    private void RunCreator()
+    private void ShowCreator()
     {
         var creatorWindow = new ClusterCreatorWindow();
         creatorWindow.ShowDialog();
@@ -35,7 +35,7 @@ public class MainWindowViewModel
         RefreshClusters();
     }
 
-    private void RunRemover()
+    private void ShowRemover()
     {
         var removerWindow = new ClusterRemoverWindow();
         removerWindow.ShowDialog();
