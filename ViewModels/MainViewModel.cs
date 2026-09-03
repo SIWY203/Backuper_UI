@@ -8,17 +8,14 @@ public class MainViewModel
     public ICommand AddClusterCommand { get; }
     public ICommand RemoveClusterCommand { get; }
     public ICommand OpenSettingsCommand { get; }
-    public ObservableCollection<Cluster> Clusters { get; }
+    public ClusterListViewModel ClusterList { get; } = new();
 
     public MainViewModel()
     {
         AddClusterCommand = new RelayCommand(ShowCreator);
         RemoveClusterCommand = new RelayCommand(ShowRemover);
         OpenSettingsCommand = new RelayCommand(OpenSettings);
-        Clusters = new ObservableCollection<Cluster>(ClusterManager.Clusters);
-
-        ClusterManager.LoadClusters();
-        RefreshClusters();
+        ClusterList.Refresh();
     }
 
     private void OpenSettings()
@@ -32,7 +29,7 @@ public class MainViewModel
         var creatorWindow = new ClusterCreatorWindow();
         creatorWindow.ShowDialog();
 
-        RefreshClusters();
+        ClusterList.Refresh();
     }
 
     private void ShowRemover()
@@ -41,9 +38,4 @@ public class MainViewModel
         removerWindow.ShowDialog();
     }
 
-    private void RefreshClusters()
-    {
-        Clusters.Clear();
-        foreach (var cluster in ClusterManager.Clusters) Clusters.Add(cluster);
-    }
 }

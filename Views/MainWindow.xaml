@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Backuper_UI"
         xmlns:vm="clr-namespace:Backuper_UI.ViewModels"
+        xmlns:views="clr-namespace:Backuper_UI.Views"
         mc:Ignorable="d"
         Title="Backuper" Height="450" Width="600">
 
@@ -38,15 +39,9 @@
             </StackPanel>
         </DockPanel>
 
-        <!-- cluster table -->
-        <ListView Grid.Row="1" ItemsSource="{Binding Clusters}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Cluster Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                    <GridViewColumn Header="Source Path" DisplayMemberBinding="{Binding Source}" Width="400"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <!-- Cluster list -->
+        <views:ClusterListView DataContext="{Binding ClusterList}" Grid.Row="1"/>
+        
 
     </Grid>
 </Window>

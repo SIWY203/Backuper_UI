@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Backuper_UI.Views.ClusterListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Backuper_UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    
+    <ListView ItemsSource="{Binding Clusters}"> <!-- UserControl sam zaciąga 'DataContext' z okna gdzie jest osadzony -->
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="Cluster Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                <GridViewColumn Header="Source Path" DisplayMemberBinding="{Binding Source}" Width="400"/>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</UserControl>

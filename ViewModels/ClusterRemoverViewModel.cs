@@ -5,9 +5,10 @@ namespace Backuper_UI.ViewModels;
 
 public class ClusterRemoverViewModel
 {
+    public ClusterListViewModel ClusterList { get; } = new();
 
     public ClusterRemoverViewModel()
     {
-        
+        ClusterList.Refresh();
     }
 }

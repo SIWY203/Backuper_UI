@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Backuper_UI"
         xmlns:vm="clr-namespace:Backuper_UI.ViewModels"
+        xmlns:views="clr-namespace:Backuper_UI.Views"        
         mc:Ignorable="d"
         Title="Backuper" Height="400" Width="500">
 
@@ -29,11 +30,12 @@
 
         <Label Content="Cluster list" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
+        <!-- cluster list -->
+        <views:ClusterListView DataContext="{Binding ClusterList}" Grid.Row="1"/>
+
         <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
 
         <Button Content="Remove" HorizontalAlignment="Left" Margin="370,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="30" Width="100"/>
-        <ListBox Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,46,0,0"/>
-
 
     </Grid>
 </Window>
