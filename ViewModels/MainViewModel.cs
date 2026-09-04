@@ -8,6 +8,7 @@ public class MainViewModel
     public ICommand AddClusterCommand { get; }
     public ICommand RemoveClusterCommand { get; }
     public ICommand OpenSettingsCommand { get; }
+    public ICommand OpenDetailsCommand { get; }
     public ClusterListViewModel ClusterList { get; } = new();
 
     public MainViewModel()
@@ -15,6 +16,7 @@ public class MainViewModel
         AddClusterCommand = new RelayCommand(ShowCreator);
         RemoveClusterCommand = new RelayCommand(ShowRemover);
         OpenSettingsCommand = new RelayCommand(OpenSettings);
+        OpenDetailsCommand = new RelayCommand(OpenDetails, () => ClusterList.SelectedCluster is not null);
         ClusterList.Refresh();
     }
 
@@ -36,6 +38,19 @@ public class MainViewModel
     {
         var removerWindow = new ClusterRemoverWindow();
         removerWindow.ShowDialog();
+        ClusterList.Refresh();
+    }
+
+    private void OpenDetails()
+    {
+        if (ClusterList.SelectedCluster is null) return;
+
+        var window = new ClusterDetailsWindow
+        {
+            DataContext = new ClusterDetailsViewModel(ClusterList.SelectedCluster)
+        };
+
+        window.ShowDialog();
     }
 
 }

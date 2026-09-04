@@ -6,13 +6,25 @@
              xmlns:local="clr-namespace:Backuper_UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="580">
-    
-    <ListView ItemsSource="{Binding Clusters}"> <!-- UserControl sam zaciąga 'DataContext' z okna gdzie jest osadzony -->
+
+    <ListView ItemsSource="{Binding Clusters}" SelectedItem="{Binding SelectedCluster}" FontSize="14" Foreground="Black">
+
         <ListView.View>
             <GridView>
+                
+                <GridView.ColumnHeaderContainerStyle>
+                    <Style TargetType="GridViewColumnHeader">
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                        <Setter Property="Padding" Value="10,0,0,0"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </GridView.ColumnHeaderContainerStyle>
+
                 <GridViewColumn Header="Cluster Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
                 <GridViewColumn Header="Source Path" DisplayMemberBinding="{Binding Source}" Width="400"/>
+                
             </GridView>
         </ListView.View>
+        
     </ListView>
 </UserControl>

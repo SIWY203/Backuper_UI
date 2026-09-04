@@ -33,9 +33,12 @@
         <!-- cluster list -->
         <views:ClusterListView DataContext="{Binding ClusterList}" Grid.Row="1"/>
 
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
+        
+        <Button Content="Back" 
+                HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
 
-        <Button Content="Remove" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" Height="30" Width="100"/>
+        <Button Content="Remove" Command="{Binding RemoveClusterCommand}"
+                HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" Height="30" Width="100"/>
 
     </Grid>
 </Window>

@@ -24,6 +24,7 @@
 
         <!-- Navbar -->
         <DockPanel Grid.Row="0" Margin="0,0,0,10">
+            
             <Label Content="Cluster List" FontSize="14" FontWeight="Bold" Width="100"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -35,9 +36,14 @@
                         Command="{Binding RemoveClusterCommand}" 
                         Width="100" Height="30" Margin="0,0,5,0"/>
 
+                <Button Content="Details" 
+                        Command="{Binding OpenDetailsCommand}" 
+                        Width="100" Height="30" Margin="0,0,5,0"/>
+
                 <Button Content="Settings" 
                         Command="{Binding OpenSettingsCommand}" 
-                        Width="100" Height="30"/>
+                        Width="100" Height="30" />
+
             </StackPanel>
         </DockPanel>
 
