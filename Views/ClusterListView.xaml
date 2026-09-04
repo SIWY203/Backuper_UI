@@ -20,8 +20,8 @@
                     </Style>
                 </GridView.ColumnHeaderContainerStyle>
 
-                <GridViewColumn Header="Cluster Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                <GridViewColumn Header="Source Path" DisplayMemberBinding="{Binding Source}" Width="400"/>
+                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="400"/>
                 
             </GridView>
         </ListView.View>

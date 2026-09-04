@@ -6,7 +6,7 @@ class ClusterManager
 {
     public static List<Cluster> Clusters = new();
 
-    public static Result AddCluster(string name, string source, string target)
+    public static Result AddCluster(string name, string source, string target, string description)
     {
         if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(source) || string.IsNullOrWhiteSpace(target))
         {
@@ -28,7 +28,7 @@ class ClusterManager
             return Result.Fail("ErrSubfolder");
         }
 
-        Cluster newCluster = new Cluster(name, source, target);
+        Cluster newCluster = new Cluster(name, source, target, description);
 
         if (Clusters.Contains(newCluster)) return Result.Fail("ErrClusterAlreadyExist");
         Clusters.Add(newCluster);

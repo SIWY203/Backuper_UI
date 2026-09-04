@@ -21,9 +21,12 @@ class ClusterUI
         string source = Console.ReadLine() ?? string.Empty;
 
         Console.Write(Loc.Get("EnterClusterTarget"));
-        string target = Console.ReadLine() ?? string.Empty;  
+        string target = Console.ReadLine() ?? string.Empty;
 
-        Result result = AddCluster(name, source, target);
+        Console.Write(Loc.Get("EnterClusterTarget"));
+        string description = Console.ReadLine() ?? string.Empty;  
+
+        Result result = AddCluster(name, source, target, description);
         if (result.IsSuccess) Console.WriteLine(Loc.Format("ClusterAdded", name));
         else Console.WriteLine(Loc.Get(result.ErrorKey ?? "Failure"));
 

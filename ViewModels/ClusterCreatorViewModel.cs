@@ -8,6 +8,7 @@ public class ClusterCreatorViewModel
     public string ClusterName { get; set; } = string.Empty;
     public string SourcePath { get; set; } = string.Empty;
     public string TargetPath { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
     public ICommand AddClusterCommand { get; }
 
     public ClusterCreatorViewModel()
@@ -17,7 +18,7 @@ public class ClusterCreatorViewModel
 
     public void Add()
     {
-        Result result = ClusterManager.AddCluster(ClusterName, SourcePath, TargetPath);
+        Result result = ClusterManager.AddCluster(ClusterName, SourcePath, TargetPath, Description);
         if (result.IsSuccess)
         {
             MessageBox.Show("Cluster added!", "Creator", MessageBoxButton.OK, MessageBoxImage.Information);

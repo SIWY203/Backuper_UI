@@ -5,7 +5,7 @@
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
             xmlns:local="clr-namespace:Backuper_UI.Views"
             mc:Ignorable="d" 
-            Title="Backuper" Height="300" Width="600">
+            Title="Backuper" Height="350" Width="600">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -23,8 +23,10 @@
 
             <TextBox Text="Target Path:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
             <TextBox Text="{Binding Cluster.Target}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
-
             
+            <TextBox Text="Description:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
+            <TextBox Text="{Binding Cluster.Description}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
+
 
         </StackPanel>
 
