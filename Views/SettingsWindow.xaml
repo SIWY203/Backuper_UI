@@ -26,7 +26,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"/>
         </DockPanel>
-        
+
         <Label Content="Language" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="Backup Limit" HorizontalAlignment="Left" Margin="10,41,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="Snapshot Limit" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" VerticalAlignment="Top"/>
@@ -35,6 +35,8 @@
         <TextBox x:Name="tbSnapshotLimit" HorizontalAlignment="Left" Margin="120,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SnapshotLimit}" VerticalAlignment="Top" Width="120"/>
 
         <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
+        <Button x:Name="btnSave" Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" Height="30" Width="100"/>
+        <TextBlock x:Name="tbSettingsSaved" HorizontalAlignment="Right" Margin="0,0,115,0" Visibility="{Binding SuccessVisibility}" Grid.Row="2" TextWrapping="Wrap" Text="Settings Saved" VerticalAlignment="Center" Width="100" TextAlignment="Center" Foreground="#FF26A45C" FontWeight="Bold"/>
 
 
     </Grid>
