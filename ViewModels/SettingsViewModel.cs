@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Xml.Linq;
 namespace Backuper_UI.ViewModels;
 
-public class SettingsViewModel : INotifyPropertyChanged
+public class SettingsViewModel
 {
     public ObservableCollection<string> Languages { get; } = ["English", "Polish"];
 
@@ -17,39 +17,18 @@ public class SettingsViewModel : INotifyPropertyChanged
     public int BackupLimit { get; set; } = Cleaner.CurrentLimit.MaxBackupCount;
     public int SnapshotLimit { get; set; } = Cleaner.CurrentLimit.MaxSnapshotCount;
 
-    private Visibility _successVisibility = Visibility.Hidden;
-    public Visibility SuccessVisibility
-    {
-        get => _successVisibility;
-        set
-        {
-            _successVisibility = value;
-            OnPropertyChanged();
-        }
-    }
-
     public SettingsViewModel()
     {
-        SaveCommand = new RelayCommand(SaveOptions);
+        SaveCommand = new RelayCommand<Window>(SaveOptions);
     }
 
-    // INotifyPropertyChanged implementation
-    public event PropertyChangedEventHandler? PropertyChanged;
-    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-
-    public async void SaveOptions()
+    public async void SaveOptions(Window? window)
     {
         // language
         Cleaner.SetLimit(BackupLimit, Cleaner.Mode.Backup);
         Cleaner.SetLimit(SnapshotLimit, Cleaner.Mode.Snapshot);
         Cleaner.SaveConfig();
 
-        SuccessVisibility = Visibility.Visible;
-        await Task.Delay(2000);
-        SuccessVisibility = Visibility.Collapsed;
+        if (window is not null) window.DialogResult = true;
     }
 }
