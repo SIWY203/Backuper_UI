@@ -16,8 +16,10 @@
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- row1 -->
-            <RowDefinition Height="*"/>    <!-- row2 -->
+            <RowDefinition Height="Auto"/>
+            <!-- row1 -->
+            <RowDefinition Height="*"/>
+            <!-- row2 -->
         </Grid.RowDefinitions>
 
         <!-- Navbar -->
@@ -41,7 +43,7 @@
 
         <!-- Cluster list -->
         <views:ClusterListView DataContext="{Binding ClusterList}" Grid.Row="1"/>
-        
+
 
     </Grid>
 </Window>
