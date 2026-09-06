@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel Grid.Row="1" Margin="10">
             <TextBox Text="Name:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
             <TextBox Text="{Binding Cluster.Name}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
@@ -23,15 +23,24 @@
 
             <TextBox Text="Target Path:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
             <TextBox Text="{Binding Cluster.Target}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
-            
+
             <TextBox Text="Description:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
             <TextBox Text="{Binding Cluster.Description}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
 
-
         </StackPanel>
 
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
+        <Button Content="Back" HorizontalAlignment="Left" 
+                Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
+
+        <Button Content="Create backup"  HorizontalAlignment="Left" VerticalAlignment="Center" 
+                Margin="115,0,0,0" Grid.Row="2" Height="30" Width="100" />
         
+        <Button Content="Restore backup"  HorizontalAlignment="Left" VerticalAlignment="Center" 
+                Margin="220,0,0,0" Grid.Row="2" Height="30" Width="100"  />
+        
+        <Button Content="Show backups"  HorizontalAlignment="Left" VerticalAlignment="Center" 
+                Margin="325,0,0,0" Grid.Row="2" Height="30" Width="100" />
+
     </Grid>
 
 </Window>

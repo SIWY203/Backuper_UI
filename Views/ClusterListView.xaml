@@ -9,9 +9,14 @@
 
     <ListView ItemsSource="{Binding Clusters}" SelectedItem="{Binding SelectedCluster}" FontSize="14" Foreground="Black">
 
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <EventSetter Event="MouseDoubleClick" Handler="OnItemDoubleClick"/> <!-- code behind -->
+            </Style>
+        </ListView.ItemContainerStyle>
+
         <ListView.View>
             <GridView>
-                
                 <GridView.ColumnHeaderContainerStyle>
                     <Style TargetType="GridViewColumnHeader">
                         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -22,7 +27,6 @@
 
                 <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
                 <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="400"/>
-                
             </GridView>
         </ListView.View>
         

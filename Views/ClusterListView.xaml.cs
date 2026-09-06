@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Backuper_UI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,14 @@ namespace Backuper_UI.Views
         public ClusterListView()
         {
             InitializeComponent();
+        }
+
+        private void OnItemDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (Window.GetWindow(this)?.DataContext is MainViewModel mainVm)
+            {
+                mainVm.OpenDetailsCommand.Execute(null);
+            }
         }
     }
 }
