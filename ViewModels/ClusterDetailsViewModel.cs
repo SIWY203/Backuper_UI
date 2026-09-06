@@ -5,9 +5,20 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 namespace Backuper_UI.ViewModels;
 
-public class ClusterDetailsViewModel(Cluster cluster)
+public class ClusterDetailsViewModel
 {
-    public Cluster Cluster { get; } = cluster;
+    public ICommand CreateBackupCommand { get; }
+    public Cluster Cluster { get; }
+    public ClusterDetailsViewModel(Cluster cluster)
+    {
+        Cluster = cluster;
+        CreateBackupCommand = new RelayCommand(CreateBackup);
+    }
+
+    public void CreateBackup()
+    {
+
+    }
 
 }
 
