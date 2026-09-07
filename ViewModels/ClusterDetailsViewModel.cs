@@ -32,25 +32,34 @@ public class ClusterDetailsViewModel
         else MessageBox.Show("Error!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Error);
     }
 
-    public void RestoreBackup()
-    {
-        Result result = BackupManager.RestoreBackup(Cluster);
-        if (result.IsSuccess)
+    public void RestoreBackup() => ConfirmAndExecute( // msg, title, action
+        $"Czy na pewno chcesz przywrócić backup klastra '{Cluster.Name}'?",
+        "Przywracanie backupu",
+        () =>
         {
-            MessageBox.Show("Backup restored!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-        else MessageBox.Show(result.ErrorKey ?? "Error!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Error);
-    }
+            Result result = BackupManager.RestoreBackup(Cluster);
+            if (result.IsSuccess)
+            {
+                MessageBox.Show("Backup restored!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else MessageBox.Show(result.ErrorKey ?? "Error!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Error);
+        });
 
-    public void UndoRestore()
-    {
-        Result result = BackupManager.RestoreSnapshot(Cluster);
-        if (result.IsSuccess)
+    public void UndoRestore() => ConfirmAndExecute(
+        $"Czy na pewno chcesz cofnąć przywracanie klastra '{Cluster.Name}'?",
+        "Cofanie przywracania",
+        () =>
         {
-            MessageBox.Show("Backup restored!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-        else MessageBox.Show(result.ErrorKey ?? "Error!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Error);
-    }
+            Result result = BackupManager.RestoreSnapshot(Cluster);
+            if (result.IsSuccess)
+            {
+                MessageBox.Show("Backup restored!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(result.ErrorKey ?? "Error!", "Backuper", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        });
 
     public void ShowBackups()
     {
@@ -63,6 +72,15 @@ public class ClusterDetailsViewModel
         }
         catch { /*ignore error*/ }
 
+    }
+
+
+    private static void ConfirmAndExecute(string message, string title, Action action)
+    {
+        if (MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+        {
+            action();
+        }
     }
 
 
