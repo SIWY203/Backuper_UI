@@ -25,7 +25,7 @@
             <TextBox Text="{Binding Cluster.Target}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
 
             <TextBox Text="Description:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
-            <TextBox Text="{Binding Cluster.Description}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
+            <TextBox Text="{Binding Cluster.Description}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent" TextWrapping="WrapWithOverflow" Height="122"/>
 
         </StackPanel>
 
