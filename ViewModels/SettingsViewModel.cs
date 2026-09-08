@@ -4,13 +4,18 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Xml.Linq;
+using Backuper_UI.Services;
 namespace Backuper_UI.ViewModels;
 
 public class SettingsViewModel
 {
-    public ObservableCollection<string> Languages { get; } = ["English", "Polish"];
+    public Dictionary<Lang, string> Languages { get; } = new()
+    {
+        [Lang.PL] = "Polski",
+        [Lang.EN] = "English"
+    };
 
-    public string? SelectedLanguage { get; set; }
+    public Lang SelectedLanguage { get; set; } = Loc.Instance.CurrentLang;
 
     public ICommand SaveCommand { get; }
 
@@ -24,7 +29,7 @@ public class SettingsViewModel
 
     public async void SaveOptions(Window? window)
     {
-        // language
+        Loc.Instance.CurrentLang = SelectedLanguage;
         Cleaner.SetLimit(BackupLimit, Cleaner.Mode.Backup);
         Cleaner.SetLimit(SnapshotLimit, Cleaner.Mode.Snapshot);
         Cleaner.SaveConfig();

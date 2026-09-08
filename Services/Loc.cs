@@ -58,27 +58,23 @@ public class Loc : INotifyPropertyChanged
     private static readonly Dictionary<string, Dictionary<Lang, string>> Dictionary = new()
     {
         // ================================
-        //  main menu
+        //  MainWindow
         // ================================
-        ["HeaderMenu"] = new() {
-            [Lang.PL] = "============ Backuper ============",
-            [Lang.EN] = "============ Backuper ============"
-        },
         ["ClusterList"] = new() {
-            [Lang.PL] = "Lista klastrów: ",
-            [Lang.EN] = "Cluster list:"
+            [Lang.PL] = "Lista klastrów",
+            [Lang.EN] = "Cluster list"
         },
-        ["OptAddCluster"] = new() {
-            [Lang.PL] = "[A] Dodaj klaster",
-            [Lang.EN] = "[A] Add cluster"
+        ["BtnAddCluster"] = new() {
+            [Lang.PL] = "Dodaj klaster",
+            [Lang.EN] = "Add cluster"
         },
-        ["OptRemoveCluster"] = new() {
-            [Lang.PL] = "[R] Usuń klaster",
-            [Lang.EN] = "[R] Remove cluster"
+        ["BtnRemoveCluster"] = new() {
+            [Lang.PL] = "Usuń klaster",
+            [Lang.EN] = "Remove cluster"
         },
-        ["OptSettings"] = new() {
-            [Lang.PL] = "[S] Ustawienia",
-            [Lang.EN] = "[S] Settings"
+        ["BtnSettings"] = new() {
+            [Lang.PL] = "Ustawienia",
+            [Lang.EN] = "Settings"
         },
         ["Quit"] = new() {
             [Lang.PL] = "[Q] Wyjdź",
@@ -86,16 +82,48 @@ public class Loc : INotifyPropertyChanged
         },
 
         // ================================
-        //  settings
+        //  ClusterListView
+        // ================================
+        ["HeaderClusterName"] = new()
+        {
+            [Lang.PL] = "Nazwa",
+            [Lang.EN] = "Name"
+        },
+        ["HeaderClusterDescription"] = new()
+        {
+            [Lang.PL] = "Opis",
+            [Lang.EN] = "Description"
+        },
+
+        // ================================
+        //  SettingsWindow
         // ================================
         ["HeaderSettings"] = new() {
-            [Lang.PL] = "=========== Ustawienia ===========",
-            [Lang.EN] = "============ Settings ============"
+            [Lang.PL] = "Ustawienia",
+            [Lang.EN] = "Settings"
         },
         ["Language"] = new() {
-            [Lang.PL] = "[1] Język",
-            [Lang.EN] = "[1] Language"
+            [Lang.PL] = "Język",
+            [Lang.EN] = "Language"
         },
+        ["BackupLimit"] = new()
+        {
+            [Lang.PL] = "Limit kopii",
+            [Lang.EN] = "Backup limit"
+        },
+        ["SnapshotLimit"] = new()
+        {
+            [Lang.PL] = "Limit snapshotów",
+            [Lang.EN] = "Snapshot limit"
+        },
+        ["BtnSave"] = new()
+        {
+            [Lang.PL] = "Zapisz",
+            [Lang.EN] = "Save"
+        },
+
+
+
         ["LanguageSet"] = new() {
             [Lang.PL] = "Ustawiono język polski",
             [Lang.EN] = "English language set"
@@ -107,11 +135,6 @@ public class Loc : INotifyPropertyChanged
         ["Polish"] = new() {
             [Lang.PL] = "[2] Polski",
             [Lang.EN] = "[2] Polski"
-        },
-        ["BackupLimit"] = new()
-        {
-            [Lang.PL] = "[2] Limit kopii",
-            [Lang.EN] = "[2] Backup limit"
         },
         ["InfoBackupVsSnapshot"] = new()
         {
@@ -387,10 +410,10 @@ public class Loc : INotifyPropertyChanged
         // ================================
         //  standard
         // ================================
-        ["OptBack"] = new()
+        ["BtnBack"] = new()
         {
-            [Lang.PL] = "[Q] Powrót",
-            [Lang.EN] = "[Q] Back"
+            [Lang.PL] = "Wróć",
+            [Lang.EN] = "Back"
         },
         ["Select"] = new() { 
             [Lang.PL] = "\nWybierz: ",

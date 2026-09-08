@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Backuper_UI"
         xmlns:vm="clr-namespace:Backuper_UI.ViewModels"
         xmlns:views="clr-namespace:Backuper_UI.Views"
+        xmlns:s="clr-namespace:Backuper_UI.Services"
         mc:Ignorable="d"
         Title="Backuper" Height="450" Width="600">
 
@@ -24,15 +25,15 @@
 
         <!-- Navbar -->
         <DockPanel Grid.Row="0" Margin="0,0,0,10">
-            
-            <Label Content="Cluster List" FontSize="14" FontWeight="Bold" Width="100"/>
+
+            <Label Content="{s:Loc ClusterList}" FontSize="14" FontWeight="Bold" Width="100"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Add Cluster" 
+                <Button Content="{s:Loc BtnAddCluster}" 
                         Command="{Binding AddClusterCommand}" 
                         Width="100" Height="30" Margin="0,0,5,0" HorizontalAlignment="Center"/>
 
-                <Button Content="Remove Cluster" 
+                <Button Content="{s:Loc BtnRemoveCluster}" 
                         Command="{Binding RemoveClusterCommand}" 
                         Width="100" Height="30" Margin="0,0,5,0"/>
 
@@ -40,7 +41,7 @@
                         Command="{Binding OpenDetailsCommand}" 
                         Width="100" Height="30" Margin="0,0,5,0"/> -->
 
-                <Button Content="Settings" 
+                <Button Content="{s:Loc BtnSettings}" 
                         Command="{Binding OpenSettingsCommand}" 
                         Width="100" Height="30" />
 

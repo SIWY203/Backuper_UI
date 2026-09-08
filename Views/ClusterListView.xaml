@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Backuper_UI.Views"
+             xmlns:s="clr-namespace:Backuper_UI.Services"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="580">
 
@@ -25,8 +26,8 @@
                     </Style>
                 </GridView.ColumnHeaderContainerStyle>
 
-                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="400"/>
+                <GridViewColumn Header="{s:Loc HeaderClusterName}" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                <GridViewColumn Header="{s:Loc HeaderClusterDescription}" DisplayMemberBinding="{Binding Description}" Width="400"/>
             </GridView>
         </ListView.View>
         

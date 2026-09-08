@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Backuper_UI"
         xmlns:vm="clr-namespace:Backuper_UI.ViewModels"
+        xmlns:s="clr-namespace:Backuper_UI.Services"
         mc:Ignorable="d"
-        Title="Backuper" Height="400" Width="500">
+        Title="Backuper" Height="350" Width="450">
 
     <!-- ViewModel -->
     <Window.DataContext>
@@ -22,23 +23,23 @@
 
         <!-- Navbar -->
         <DockPanel Grid.Row="0" Margin="0,0,0,10">
-            <Label Content="Settings" FontSize="14" FontWeight="Bold" Width="100"/>
+            <Label Content="{s:Loc HeaderSettings}" FontSize="14" FontWeight="Bold" Width="239"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"/>
         </DockPanel>
 
-        <Label Content="Language" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="Backup Limit" HorizontalAlignment="Left" Margin="10,41,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="Snapshot Limit" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboLanguage" HorizontalAlignment="Left" Margin="120,15,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
-        <TextBox x:Name="tbBackupLimit" HorizontalAlignment="Left" Margin="120,45,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding BackupLimit}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbSnapshotLimit" HorizontalAlignment="Left" Margin="120,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SnapshotLimit}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{s:Loc Language}" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top" Width="119"/>
+        <Label Content="{s:Loc BackupLimit}" HorizontalAlignment="Left" Margin="10,41,0,0" Grid.Row="1" VerticalAlignment="Top" Width="119"/>
+        <Label Content="{s:Loc SnapshotLimit}" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" VerticalAlignment="Top" Width="119"/>
+        <ComboBox ItemsSource="{Binding Languages}" SelectedValue="{Binding SelectedLanguage}" SelectedValuePath="Key" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="134,15,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbBackupLimit" HorizontalAlignment="Left" Margin="134,45,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding BackupLimit}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbSnapshotLimit" HorizontalAlignment="Left" Margin="134,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SnapshotLimit}" VerticalAlignment="Top" Width="120"/>
 
-        <Button Content="Back" 
+        <Button Content="{s:Loc BtnBack}" 
                 IsCancel="True"
                 HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="100"/>
-        
-        <Button Content="Save" 
+
+        <Button Content="{s:Loc BtnSave}" 
                 Command="{Binding SaveCommand}"
                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                 HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" Height="30" Width="100"/>
