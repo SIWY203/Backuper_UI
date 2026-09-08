@@ -1,6 +1,6 @@
 ﻿using static ClusterManager;
 using static InputManager;
-
+using Backuper_UI.Services;
 namespace Backuper_UI.ViewModels;
 
 class ClusterUI
@@ -8,27 +8,27 @@ class ClusterUI
     public static void RunCreator()
     {
         Console.Clear();
-        Console.WriteLine(Loc.Get("InfoCanDropDir"));
+        Console.WriteLine(Loc.Instance["InfoCanDropDir"]);
         Console.WriteLine();
-        Console.Write(Loc.Get("Ok"));
+        Console.Write(Loc.Instance["Ok"]);
         Console.ReadLine();
         Console.Clear();
-        Console.WriteLine(Loc.Get("HeaderCreator"));
-        Console.Write(Loc.Get("EnterClusterName"));
+        Console.WriteLine(Loc.Instance["HeaderCreator"]);
+        Console.Write(Loc.Instance["EnterClusterName"]);
         string name = Console.ReadLine() ?? string.Empty;
 
-        Console.Write(Loc.Get("EnterClusterSource"));
+        Console.Write(Loc.Instance["EnterClusterSource"]);
         string source = Console.ReadLine() ?? string.Empty;
 
-        Console.Write(Loc.Get("EnterClusterTarget"));
+        Console.Write(Loc.Instance["EnterClusterTarget"]);
         string target = Console.ReadLine() ?? string.Empty;
 
-        Console.Write(Loc.Get("EnterClusterTarget"));
+        Console.Write(Loc.Instance["EnterClusterTarget"]);
         string description = Console.ReadLine() ?? string.Empty;  
 
         Result result = AddCluster(name, source, target, description);
-        if (result.IsSuccess) Console.WriteLine(Loc.Format("ClusterAdded", name));
-        else Console.WriteLine(Loc.Get(result.ErrorKey ?? "Failure"));
+        if (result.IsSuccess) Console.WriteLine(Loc.Instance.Format("ClusterAdded", name));
+        else Console.WriteLine(Loc.Instance[result.ErrorKey ?? "Failure"]);
 
         Console.ReadLine();
     }
@@ -37,14 +37,14 @@ class ClusterUI
     public static void RunRemover()
     {
         Console.Clear();
-        Console.WriteLine(Loc.Get("HeaderCreator"));
-        Console.WriteLine(Loc.Get("SelectToRemove"));
+        Console.WriteLine(Loc.Instance["HeaderCreator"]);
+        Console.WriteLine(Loc.Instance["SelectToRemove"]);
         for (int i = 0; i < Clusters.Count; i++)
         {
             Console.WriteLine($"[{i+1}] {Clusters[i].Name}");
         }
 
-        Console.Write(Loc.Get("Select"));
+        Console.Write(Loc.Instance["Select"]);
         string input = Console.ReadLine() ?? "";
         if (IsWithinScope(input, Clusters, out int num))
         {
@@ -52,7 +52,7 @@ class ClusterUI
 
             if (!ConfirmRemove())
             {
-                Console.WriteLine(Loc.Get("Cancelled"));
+                Console.WriteLine(Loc.Instance["Cancelled"]);
                 Console.ReadLine();
                 return;
             }
@@ -66,9 +66,9 @@ class ClusterUI
     public static bool ConfirmRemove()
     {
         Console.Clear();
-        Console.WriteLine(Loc.Get("AskToRemoveCluster"));
-        Console.WriteLine(Loc.Get("ConfirmRemoveCluster"));
-        Console.Write(Loc.Get("Select"));
+        Console.WriteLine(Loc.Instance["AskToRemoveCluster"]);
+        Console.WriteLine(Loc.Instance["ConfirmRemoveCluster"]);
+        Console.Write(Loc.Instance["Select"]);
         string input = Console.ReadLine() ?? "";
         Console.Clear();
 
@@ -82,15 +82,15 @@ class ClusterUI
         while (true)
         {
             Console.Clear();
-            Console.WriteLine(Loc.Format("ClusterDetails", c.Name, c.Source, c.Target));
-            Console.WriteLine(Loc.Get("OptEditCluster"));
-            Console.WriteLine(Loc.Get("OptCreateBackup"));
-            Console.WriteLine(Loc.Get("OptRestoreBackup"));
-            Console.WriteLine(Loc.Get("OptUndoRestore"));
-            Console.WriteLine(Loc.Get("OptShowBackups"));
-            Console.WriteLine(Loc.Get("OptBack"));
+            Console.WriteLine(Loc.Instance.Format("ClusterDetails", c.Name, c.Source, c.Target));
+            Console.WriteLine(Loc.Instance["OptEditCluster"]);
+            Console.WriteLine(Loc.Instance["OptCreateBackup"]);
+            Console.WriteLine(Loc.Instance["OptRestoreBackup"]);
+            Console.WriteLine(Loc.Instance["OptUndoRestore"]);
+            Console.WriteLine(Loc.Instance["OptShowBackups"]);
+            Console.WriteLine(Loc.Instance["OptBack"]);
 
-            Console.Write(Loc.Get("Select"));
+            Console.Write(Loc.Instance["Select"]);
             string input = Console.ReadLine() ?? "";
             if (input.ToLower() == "e")
             {
@@ -127,47 +127,47 @@ class ClusterUI
         while (true)
         {
             Console.Clear();
-            Console.WriteLine(Loc.Get("HeaderClusterEditor"));
-            Console.WriteLine(Loc.Format("ClusterDetails", c.Name, c.Source, c.Target));
-            Console.WriteLine(Loc.Get("OptUpdateClusterName"));
-            Console.WriteLine(Loc.Get("OptUpdateClusterSource"));
-            Console.WriteLine(Loc.Get("OptUpdateClusterTarget"));
-            Console.WriteLine(Loc.Get("OptBack"));
+            Console.WriteLine(Loc.Instance["HeaderClusterEditor"]);
+            Console.WriteLine(Loc.Instance.Format("ClusterDetails", c.Name, c.Source, c.Target));
+            Console.WriteLine(Loc.Instance["OptUpdateClusterName"]);
+            Console.WriteLine(Loc.Instance["OptUpdateClusterSource"]);
+            Console.WriteLine(Loc.Instance["OptUpdateClusterTarget"]);
+            Console.WriteLine(Loc.Instance["OptBack"]);
 
-            Console.Write(Loc.Get("Select"));
+            Console.Write(Loc.Instance["Select"]);
             string input = Console.ReadLine() ?? "";
             if (input.ToLower() == "q") return c;
             if (!IsWithinScope(input, (1, 3), out int num)) continue;
 
             Console.Clear();
-            Console.WriteLine(Loc.Get("HeaderClusterEditor"));
+            Console.WriteLine(Loc.Instance["HeaderClusterEditor"]);
             switch (num)
             {
                 case 1:
-                    Console.Write(Loc.Get("EnterClusterName"));
+                    Console.Write(Loc.Instance["EnterClusterName"]);
                     string newName = Console.ReadLine() ?? "";
                     var (result, updatedName) = UpdateClusterName(c, newName);
                     if (updatedName != null)
                     {
                         c = updatedName;
-                        Console.WriteLine(Loc.Get("UpdateNameSuccess"));
+                        Console.WriteLine(Loc.Instance["UpdateNameSuccess"]);
                     }
-                    else Console.WriteLine(Loc.Get(result.ErrorKey ?? "Failure"));
+                    else Console.WriteLine(Loc.Instance[result.ErrorKey ?? "Failure"]);
                     Console.ReadLine();
                     break;
 
                 case 2:
-                    Console.Write(Loc.Get("EnterClusterSource"));
+                    Console.Write(Loc.Instance["EnterClusterSource"]);
                     string newSource = Console.ReadLine() ?? "";
                     if (string.IsNullOrWhiteSpace(newSource))
                     {
-                        Console.WriteLine(Loc.Get("ErrEmptyField"));
+                        Console.WriteLine(Loc.Instance["ErrEmptyField"]);
                         Console.ReadLine();
                         break;
                     }
                     if (c.Target.StartsWith(newSource, StringComparison.OrdinalIgnoreCase))
                     {
-                        Console.WriteLine(Loc.Get("ErrSubfolder"));
+                        Console.WriteLine(Loc.Instance["ErrSubfolder"]);
                         Console.ReadLine();
                         break;
                     }
@@ -175,24 +175,24 @@ class ClusterUI
                     if (updatedSource != null)
                     {
                         c = updatedSource;
-                        Console.WriteLine(Loc.Get("UpdatePathSuccess"));
+                        Console.WriteLine(Loc.Instance["UpdatePathSuccess"]);
                     }
-                    else Console.WriteLine(Loc.Get("Failure"));
+                    else Console.WriteLine(Loc.Instance["Failure"]);
                     Console.ReadLine();
                     break;
 
                 case 3:
-                    Console.Write(Loc.Get("EnterClusterTarget"));
+                    Console.Write(Loc.Instance["EnterClusterTarget"]);
                     string newTarget = Console.ReadLine() ?? "";
                     if (string.IsNullOrWhiteSpace(newTarget))
                     {
-                        Console.WriteLine(Loc.Get("ErrEmptyField"));
+                        Console.WriteLine(Loc.Instance["ErrEmptyField"]);
                         Console.ReadLine();
                         break;
                     }
                     if (newTarget.StartsWith(c.Source, StringComparison.OrdinalIgnoreCase))
                     {
-                        Console.WriteLine(Loc.Get("ErrSubfolder"));
+                        Console.WriteLine(Loc.Instance["ErrSubfolder"]);
                         Console.ReadLine();
                         break;
                     }
@@ -200,9 +200,9 @@ class ClusterUI
                     if (updatedTarget != null)
                     {
                         c = updatedTarget;
-                        Console.WriteLine(Loc.Get("UpdatePathSuccess"));
+                        Console.WriteLine(Loc.Instance["UpdatePathSuccess"]);
                     }
-                    else Console.WriteLine(Loc.Get("Failure"));
+                    else Console.WriteLine(Loc.Instance["Failure"]);
                     Console.ReadLine();
                     break;
 

@@ -1,5 +1,5 @@
 ﻿using static InputManager;
-
+using Backuper_UI.Services;
 
 class SettingsUI
 {
@@ -9,12 +9,12 @@ class SettingsUI
         while (true)
         {
             Console.Clear();
-            Console.WriteLine(Loc.Get("HeaderSettings"));
-            Console.WriteLine(Loc.Get("Language"));
-            Console.WriteLine(Loc.Get("BackupLimit"));
+            Console.WriteLine(Loc.Instance["HeaderSettings"]);
+            Console.WriteLine(Loc.Instance["Language"]);
+            Console.WriteLine(Loc.Instance["BackupLimit"]);
             Console.WriteLine();
-            Console.WriteLine(Loc.Get("OptBack"));
-            Console.Write(Loc.Get("Select"));
+            Console.WriteLine(Loc.Instance["OptBack"]);
+            Console.Write(Loc.Instance["Select"]);
 
             string input = Console.ReadLine() ?? "";
             if (input.ToUpper() == "Q") return;
@@ -28,21 +28,21 @@ class SettingsUI
         while (true)
         {
             Console.Clear();
-            Console.WriteLine(Loc.Get("English"));
-            Console.WriteLine(Loc.Get("Polish"));
+            Console.WriteLine(Loc.Instance["English"]);
+            Console.WriteLine(Loc.Instance["Polish"]);
             Console.WriteLine();
-            Console.WriteLine(Loc.Get("OptBack"));
-            Console.Write(Loc.Get("Select"));
+            Console.WriteLine(Loc.Instance["OptBack"]);
+            Console.Write(Loc.Instance["Select"]);
 
             string input = Console.ReadLine() ?? "";
             if (input.ToUpper() == "Q") return;
 
-            else if (input == "1") Loc.Set(Lang.EN);
-            else if (input == "2") Loc.Set(Lang.PL);
+            else if (input == "1") Loc.Instance.CurrentLang = Lang.EN;
+            else if (input == "2") Loc.Instance.CurrentLang = Lang.PL;
             else continue;
 
             Console.Clear();
-            Console.WriteLine(Loc.Get("LanguageSet"));
+            Console.WriteLine(Loc.Instance["LanguageSet"]);
             Console.ReadLine();
         }
     }
@@ -52,15 +52,15 @@ class SettingsUI
         while (true)
         {
             Console.Clear();
-            Console.WriteLine(Loc.Get("InfoBackupVsSnapshot"));
+            Console.WriteLine(Loc.Instance["InfoBackupVsSnapshot"]);
             Console.WriteLine();
-            Console.WriteLine(Loc.Format("ShowCurrentLimits", Cleaner.CurrentLimit.MaxBackupCount, Cleaner.CurrentLimit.MaxSnapshotCount));
+            Console.WriteLine(Loc.Instance.Format("ShowCurrentLimits", Cleaner.CurrentLimit.MaxBackupCount, Cleaner.CurrentLimit.MaxSnapshotCount));
             Console.WriteLine();
-            Console.WriteLine(Loc.Get("SetBackupLimit"));
-            Console.WriteLine(Loc.Get("SetSnapshotLimit"));
+            Console.WriteLine(Loc.Instance["SetBackupLimit"]);
+            Console.WriteLine(Loc.Instance["SetSnapshotLimit"]);
             Console.WriteLine();
-            Console.WriteLine(Loc.Get("OptBack"));
-            Console.Write(Loc.Get("Select"));
+            Console.WriteLine(Loc.Instance["OptBack"]);
+            Console.Write(Loc.Instance["Select"]);
         
             string input = Console.ReadLine() ?? "";
             if (input.ToUpper() == "Q") return;
@@ -69,12 +69,12 @@ class SettingsUI
             Cleaner.Mode mode = num == 1 ? Cleaner.Mode.Backup : Cleaner.Mode.Snapshot;
 
             Console.Clear();
-            Console.Write(Loc.Get("EnterLimitValue"));
+            Console.Write(Loc.Instance["EnterLimitValue"]);
             string limitInput = Console.ReadLine() ?? "";
             if (!int.TryParse(limitInput, out int limit))
             {
                 Console.Clear();
-                Console.WriteLine(Loc.Get("NotNumber"));
+                Console.WriteLine(Loc.Instance["NotNumber"]);
                 Console.ReadLine();
                 continue;
             }
@@ -84,13 +84,13 @@ class SettingsUI
             Console.Clear();
             if (!r.IsSuccess)
             {
-                Console.WriteLine(Loc.Get(r.ErrorKey ?? "Failure"));
+                Console.WriteLine(Loc.Instance[r.ErrorKey ?? "Failure"]);
                 Console.ReadLine();
                 continue;
             }
             else
             {
-                Console.WriteLine(Loc.Get("NewLimitSet"));
+                Console.WriteLine(Loc.Instance["NewLimitSet"]);
                 Console.ReadLine();
             }
                 

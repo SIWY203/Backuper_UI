@@ -1,6 +1,6 @@
 ﻿using static BackupManager;
 using System.Diagnostics;
-
+using Backuper_UI.Services;
 namespace Backuper_UI.ViewModels;
 
 class BackupUI
@@ -8,10 +8,10 @@ class BackupUI
     public static void Create(Cluster c)
     {
         Console.Clear();
-        Console.WriteLine(Loc.Get("BackupCreating"));
+        Console.WriteLine(Loc.Instance["BackupCreating"]);
         bool success = CreateBackup(c);
-        if (success) Console.WriteLine(Loc.Get("BackupCreated"));
-        else Console.WriteLine(Loc.Get("Failure"));
+        if (success) Console.WriteLine(Loc.Instance["BackupCreated"]);
+        else Console.WriteLine(Loc.Instance["Failure"]);
         Console.ReadLine();
 
     }
@@ -20,17 +20,17 @@ class BackupUI
     public static void Restore(Cluster c)
     {
         Console.Clear();
-        Console.WriteLine(Loc.Get("InfoSnapshotCreation"));
+        Console.WriteLine(Loc.Instance["InfoSnapshotCreation"]);
         Console.WriteLine();
         if (!ConfirmAction("AskForRestoreBackup", "ConfirmRestoreBackup"))
         {
-            Console.WriteLine(Loc.Get("Cancelled"));
+            Console.WriteLine(Loc.Instance["Cancelled"]);
             Console.ReadLine();
             return;
         }
 
         Result result = RestoreBackup(c);
-        Console.WriteLine(result.IsSuccess ? Loc.Get("BackupRestored") : Loc.Get(result.ErrorKey ?? "Failure"));
+        Console.WriteLine(result.IsSuccess ? Loc.Instance["BackupRestored"] : Loc.Instance[result.ErrorKey ?? "Failure"]);
         Console.ReadLine();
     }
 
@@ -40,22 +40,22 @@ class BackupUI
         Console.Clear();
         if (!ConfirmAction("AskForUndoRestore", "ConfirmUndoRestore"))
         {
-            Console.WriteLine(Loc.Get("Cancelled"));
+            Console.WriteLine(Loc.Instance["Cancelled"]);
             Console.ReadLine();
             return;
         }
 
         Result result = RestoreSnapshot(c);
-        Console.WriteLine(result.IsSuccess ? Loc.Get("SnapshotRestored") : Loc.Get(result.ErrorKey ?? "Failure"));
+        Console.WriteLine(result.IsSuccess ? Loc.Instance["SnapshotRestored"] : Loc.Instance[result.ErrorKey ?? "Failure"]);
         Console.ReadLine();
     }
 
 
     public static bool ConfirmAction(string askKey, string confirmKey)
     {
-        Console.WriteLine(Loc.Get(askKey));
-        Console.WriteLine(Loc.Get(confirmKey));
-        Console.Write(Loc.Get("Select"));
+        Console.WriteLine(Loc.Instance[askKey]);
+        Console.WriteLine(Loc.Instance[confirmKey]);
+        Console.Write(Loc.Instance["Select"]);
         string input = Console.ReadLine() ?? "";
         Console.Clear();
 
@@ -70,12 +70,12 @@ class BackupUI
 
         if (!AnyBackupExists(c))
         {
-            Console.WriteLine(Loc.Get("NoBackupToDisplay"));
+            Console.WriteLine(Loc.Instance["NoBackupToDisplay"]);
             Console.ReadLine();
             return;
         }
 
-        Console.WriteLine(Loc.Format("BackupsOfCluster", c.Name));
+        Console.WriteLine(Loc.Instance.Format("BackupsOfCluster", c.Name));
         foreach (var backup in backups)
         {
             Console.WriteLine($" - {backup}");

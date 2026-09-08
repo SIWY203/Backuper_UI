@@ -1,11 +1,59 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.ComponentModel;
+using System.IO;
+using System.Windows.Data;
 using static ConfigManager;
+namespace Backuper_UI.Services;
 
 public enum Lang { PL, EN }
 
-public static class Loc
+public class Loc : INotifyPropertyChanged
 {
-    public static Lang CurrentLang { get; set; } = Lang.EN;
+    public Lang CurrentLang
+    {
+        get => field;
+        set
+        {
+            if (field == value) return;
+            field = value;
+            File.WriteAllText(LanguageConfigFile, value.ToString()); // auto-save
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Binding.IndexerName)); // Refresh XAML binds on the indexer
+        }
+    } = Lang.EN;
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+
+    // Loc.Instance["msgKey"]
+    public static Loc Instance { get; } = new();
+    public string this[string key] =>
+        Dictionary.TryGetValue(key, out var translations) && translations.TryGetValue(CurrentLang, out var text)
+            ? text
+            : key;
+
+
+    // Loc.Instance.Format("msgKey", arg0, arg1, ...)
+    public string Format(string key, params object[] args)
+    {
+        return string.Format(Instance[key], args);
+    }
+
+
+    // Lang Configs
+    public void LoadLangConfig()
+    {
+        if (File.Exists(LanguageConfigFile))
+        {
+            string lang = File.ReadAllText(LanguageConfigFile).Trim();
+            if (Enum.TryParse(lang, true, out Lang parsedLang))
+            {
+                CurrentLang = parsedLang;
+                return;
+            }
+        }
+        CurrentLang = Lang.EN; // default
+    }
+
 
     private static readonly Dictionary<string, Dictionary<Lang, string>> Dictionary = new()
     {
@@ -367,44 +415,7 @@ public static class Loc
         
     
     };
+    
 
-
-    // Loc.Get("msgKey")
-    public static string Get(string key)
-    {
-        if(Dictionary.TryGetValue(key, out var translations) && translations.TryGetValue(CurrentLang, out var text))
-        {
-            return text;
-        }
-        return key;
-    }
-
-
-    // Loc.Format("msgKey", arg0, arg1, arg2...)
-    public static string Format(string key, params object[] args)
-    {
-        return string.Format(Get(key), args);
-    }
-
-
-    // Lang Configs
-    public static void LoadLangConfig()
-    {
-        if (File.Exists(LanguageConfigFile))
-        {
-            string lang = File.ReadAllText(LanguageConfigFile).Trim();
-            if (Enum.TryParse(lang, true, out Lang parsedLang))
-            {
-                CurrentLang = parsedLang;
-                return;
-            }
-        }
-        CurrentLang = Lang.EN; // default
-    }
-    public static void Set(Lang lang)
-    {
-        CurrentLang = lang;
-        File.WriteAllText(LanguageConfigFile, lang.ToString());
-    }
 }
 
