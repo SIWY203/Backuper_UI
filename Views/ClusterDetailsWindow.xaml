@@ -4,6 +4,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
             xmlns:local="clr-namespace:Backuper_UI.Views"
+            xmlns:s="clr-namespace:Backuper_UI.Services"
             mc:Ignorable="d" 
             Title="Backuper" Height="350" Width="560">
 
@@ -15,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Margin="10">
-            <TextBox Text="Name:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
+            <TextBox Text="{s:Loc Name}" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
             <TextBox Text="{Binding Cluster.Name}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
 
             <TextBox Text="Source Path:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>

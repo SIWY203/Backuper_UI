@@ -122,6 +122,20 @@ public class Loc : INotifyPropertyChanged
             [Lang.EN] = "Save"
         },
 
+        // ================================
+        //  ClusterRemoverWindow
+        // ================================
+        ["HeaderClusterRemover"] = new()
+        {
+            [Lang.PL] = "Usuwanie klastrów",
+            [Lang.EN] = "Remove cluster"
+        },
+        ["BtnRemove"] = new() {
+            [Lang.PL] = "Usuń klaster",
+            [Lang.EN] = "Remove cluster"
+        },
+
+
 
 
         ["LanguageSet"] = new() {
