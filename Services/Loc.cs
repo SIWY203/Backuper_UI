@@ -123,6 +123,40 @@ public class Loc : INotifyPropertyChanged
         },
 
         // ================================
+        //  ClusterCreatorWindow
+        // ================================
+        ["HeaderClusterCreator"] = new()
+        {
+            [Lang.PL] = "Kreator Klastrów",
+            [Lang.EN] = "Cluster Creator"
+        },
+        ["BtnCreate"] = new()
+        {
+            [Lang.PL] = "Stwórz",
+            [Lang.EN] = "Create"
+        },
+        ["ClusterName"] = new()
+        {
+            [Lang.PL] = "Nazwa klastra",
+            [Lang.EN] = "Cluster name"
+        },
+        ["SourcePath"] = new()
+        {
+            [Lang.PL] = "Ścieżka źródłowa",
+            [Lang.EN] = "Source path"
+        },
+        ["TargetPath"] = new()
+        {
+            [Lang.PL] = "Ścieżka docelowa",
+            [Lang.EN] = "Target path"
+        },
+        ["Description"] = new()
+        {
+            [Lang.PL] = "Opis",
+            [Lang.EN] = "Description"
+        },
+
+        // ================================
         //  ClusterRemoverWindow
         // ================================
         ["HeaderClusterRemover"] = new()
@@ -135,21 +169,39 @@ public class Loc : INotifyPropertyChanged
             [Lang.EN] = "Remove cluster"
         },
 
+        // ================================
+        //  ClusterDetailsWindow
+        // ================================
+
+        ["Name"] = new()
+        {
+            [Lang.PL] = "Nazwa",
+            [Lang.EN] = "Name"
+        },
+        ["BtnCreateBackup"] = new()
+        {
+            [Lang.PL] = "Stwórz backup",
+            [Lang.EN] = "Create backup"
+        },
+        ["BtnRestoreBackup"] = new()
+        {
+            [Lang.PL] = "Przywróć backup",
+            [Lang.EN] = "Restore backup"
+        },
+        ["BtnUndoRestore"] = new()
+        {
+            [Lang.PL] = "Cofnij przywracanie",
+            [Lang.EN] = "Undo restore"
+        },
+        ["BtnShowBackups"] = new()
+        {
+            [Lang.PL] = "Pokaż backupy",
+            [Lang.EN] = "Show backups"
+        },
 
 
 
-        ["LanguageSet"] = new() {
-            [Lang.PL] = "Ustawiono język polski",
-            [Lang.EN] = "English language set"
-        },
-        ["English"] = new() {
-            [Lang.PL] = "[1] English",
-            [Lang.EN] = "[1] English"
-        },
-        ["Polish"] = new() {
-            [Lang.PL] = "[2] Polski",
-            [Lang.EN] = "[2] Polski"
-        },
+
         ["InfoBackupVsSnapshot"] = new()
         {
             [Lang.PL] = "Limit backupów dotyczy kopii zapasowych danego folderu, \n" +

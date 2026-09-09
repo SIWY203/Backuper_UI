@@ -16,35 +16,35 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Margin="10">
-            <TextBox Text="{s:Loc Name}" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
-            <TextBox Text="{Binding Cluster.Name}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
+            <TextBlock Text="{s:Loc Name}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Cluster.Name}" Margin="0,0,0,10"/>
 
-            <TextBox Text="Source Path:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
-            <TextBox Text="{Binding Cluster.Source}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
+            <TextBlock Text="{s:Loc SourcePath}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Cluster.Source}" Margin="0,0,0,10"/>
 
-            <TextBox Text="Target Path:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
-            <TextBox Text="{Binding Cluster.Target}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
+            <TextBlock Text="{s:Loc TargetPath}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Cluster.Target}" Margin="0,0,0,10"/>
 
-            <TextBox Text="Description:" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Background="Transparent"/>
-            <TextBox Text="{Binding Cluster.Description}" Margin="0,0,0,10" IsReadOnly="True" BorderThickness="0" Background="Transparent" TextWrapping="WrapWithOverflow" Height="122"/>
+            <TextBlock Text="{s:Loc Description}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Cluster.Description}" Margin="0,0,0,10" TextWrapping="WrapWithOverflow" Height="122"/>
 
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" Grid.Row="2">
 
-            <Button Content="Back" HorizontalAlignment="Left" 
+            <Button Content="{s:Loc BtnBack}" HorizontalAlignment="Left" 
                     Margin="0, 0, 5, 0" VerticalAlignment="Top" Height="30" Width="100" IsCancel="True"/>
 
-            <Button Content="Create backup" Command="{Binding CreateBackupCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
+            <Button Content="{s:Loc BtnCreateBackup}" Command="{Binding CreateBackupCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
                     Margin="0, 0, 5, 0" Height="30" Width="100" />
 
-            <Button Content="Restore backup" Command="{Binding RestoreBackupCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
+            <Button Content="{s:Loc BtnRestoreBackup}" Command="{Binding RestoreBackupCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
                     Margin="0, 0, 5, 0" Height="30" Width="100"  />
 
-            <Button Content="Undo restore" Command="{Binding UndoRestoreCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
+            <Button Content="{s:Loc BtnUndoRestore}" Command="{Binding UndoRestoreCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
                     Margin="0, 0, 5, 0" Height="30" Width="100"  />
 
-            <Button Content="Show backups" Command="{Binding ShowBackupsCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
+            <Button Content="{s:Loc BtnShowBackups}" Command="{Binding ShowBackupsCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
                     Margin="0, 0, 0, 0" Height="30" Width="100" />
 
         </StackPanel>
