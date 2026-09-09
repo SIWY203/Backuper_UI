@@ -13,6 +13,7 @@
         <ListView.ItemContainerStyle>
             <Style TargetType="ListViewItem">
                 <EventSetter Event="MouseDoubleClick" Handler="OnItemDoubleClick"/> <!-- code behind -->
+                <Setter Property="Height" Value="30"/>
             </Style>
         </ListView.ItemContainerStyle>
 
